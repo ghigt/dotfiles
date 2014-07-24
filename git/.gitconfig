@@ -4,10 +4,10 @@
 	editor = vim -c 'startinsert'
 	excludesfile = ~/.gitignore_global
 [user]
-	email = jeremy.saenz@gmail.com
-	name = Jeremy Saenz
+	email = gt.ghislain@gmail.com
+	name = Ghislain Gt
 [github]
-	user = codegangsta
+	user = ghigt
 [alias]
   co = checkout
   c = commit -v
@@ -21,3 +21,8 @@
   i = "issue"
   ic = "issue create"
   cis = "ci-status"
+[credential]
+	helper = osxkeychain
+[filter "media"]
+	clean = git-media-clean %f
+	smudge = git-media-smudge %f
