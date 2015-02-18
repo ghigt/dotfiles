@@ -35,10 +35,17 @@ export GOCODE=$GOPATH/src/github.com/ghigt
 
 export TEXBIN="/usr/texbin"
 export CABALPATH=$HOME/.cabal
-export PATH="${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${CABALPATH}/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:${TEXBIN}"
+export PATH="${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${CABALPATH}/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${TEXBIN}"
 
 export EDITOR='vim'
 export DISABLE_AUTO_TITLE=true
+
+# boot2docker
+export DOCKER_HOST=tcp://192.168.59.103:2376
+export DOCKER_CERT_PATH=/Users/ghigt/.boot2docker/certs/boot2docker-vm
+export DOCKER_TLS_VERIFY=1
+
+. `brew --prefix`/etc/profile.d/z.sh
 
 # Pomodoro baby
 pom() { pompom -e "$*" && pompom -d 5 "Break Time" }

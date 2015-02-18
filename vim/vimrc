@@ -462,8 +462,13 @@ augroup END
 
 au FileType nginx setlocal noet ts=4 sw=4 sts=4
 
+au FileType yaml setlocal noet sw=2 sts=2
+
 au FileType html setlocal noet ts=2 sw=2 sts=2
 au FileType javascript setlocal noet ts=2 sw=2 sts=2
+
+" Shell settings
+au BufNewFile,BufRead *.sh setlocal noet ts=4 sw=4 sts=4
 
 " Go settings
 au BufNewFile,BufRead *.go setlocal noet ts=4 sw=4 sts=4
@@ -624,6 +629,9 @@ au FileType go nmap  <leader>b  <Plug>(go-build)
 au FileType go nmap <Leader>d <Plug>(go-doc)
 
 " ==================== UltiSnips ====================
+"
+" DOESN'T WORK YET ON MY MAC...
+"
 function! g:UltiSnips_Complete()
     call UltiSnips#ExpandSnippetOrJump()
     if g:ulti_expand_or_jump_res == 0
