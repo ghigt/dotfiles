@@ -13,39 +13,41 @@ alias -g gits='git status'
 alias -g migrate='rake db:migrate db:test:prepare'
 alias -g be='bundle exec'
 alias -g github='git hub'
-alias -g tag='ctags -R .'
 alias -g mux='tmuxinator'
 alias -g tks='tmux kill-session'
 alias -g rmswp='find . -name ".*.sw*" | xargs rm -f'
 alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias -g nw="${HOME}/Applications/node-webkit.app/Contents/MacOS/node-webkit"
+alias machine="docker-machine"
+alias compose="docker-compose"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git golang brew heroku node docker)
+plugins=(git golang brew heroku node docker docker-compose docker-machine docker-swarm npm node)
 
 source $ZSH/oh-my-zsh.sh
 # Disable auto correct
 unsetopt correct_all
 
-export GOPATH=$HOME/Projects/golang
+export GOPATH=$HOME/code/golang
 export GOCODE=$GOPATH/src/github.com/ghigt
 
-export TEXBIN="/usr/texbin"
-export CABALPATH=$HOME/.cabal
-export PATH="${GOPATH}/bin:/usr/local/opt/go/libexec/bin:${CABALPATH}/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin:${TEXBIN}"
+alias gb=$GOPATH/bin/gb
+
+export PATH="${GOPATH}/bin:/usr/local/opt/go/libexec/bin:/usr/local/bin:/usr/bin:/bin:/usr/local/sbin:/usr/sbin:/sbin"
 
 export EDITOR='vim'
 export DISABLE_AUTO_TITLE=true
 
-# boot2docker
-export DOCKER_HOST=tcp://192.168.59.103:2376
-export DOCKER_CERT_PATH=/Users/ghigt/.boot2docker/certs/boot2docker-vm
+# docker machine
+export DOCKER_CERT_PATH=/Users/ghigt/.docker/machine/machines/default
+export DOCKER_HOST=tcp://192.168.99.100:2376
 export DOCKER_TLS_VERIFY=1
 
 . `brew --prefix`/etc/profile.d/z.sh
 
-# Pomodoro baby
-pom() { pompom -e "$*" && pompom -d 5 "Break Time" }
+# nvm
+export NVM_DIR=~/.nvm
+source $(brew --prefix nvm)/nvm.sh

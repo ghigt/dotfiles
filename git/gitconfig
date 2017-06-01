@@ -9,7 +9,7 @@
 [github]
 	user = ghigt
 [alias]
-  co = checkout
+	co = checkout
   c = commit -v
   lg = log --graph --pretty=format:'%Cred%h%Creset %C(yellow)%an%d%Creset %s %Cgreen(%cr)%Creset' --date=relative
   pb = "!git push origin \"$(git rev-parse --abbrev-ref HEAD)\""
@@ -21,8 +21,15 @@
   i = "issue"
   ic = "issue create"
   cis = "ci-status"
+	br = branch
+	ci = commit
+	st = status
 [credential]
 	helper = osxkeychain
 [filter "media"]
 	clean = git-media-clean %f
 	smudge = git-media-smudge %f
+[filter "lfs"]
+	clean = git-lfs clean %f
+	smudge = git-lfs smudge %f
+	required = true
