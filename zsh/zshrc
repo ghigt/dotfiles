@@ -12,11 +12,12 @@ alias zshconfig="vim ~/.zshrc"
 alias ohmyzsh="vim ~/.oh-my-zsh"
 alias machine="docker-machine"
 alias compose="docker-compose"
+alias vim="nvim"
 
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git golang brew heroku node docker docker-compose docker-machine docker-swarm npm node)
+plugins=(git go brew node docker docker-compose npm node)
 
 source $ZSH/oh-my-zsh.sh
 # Disable auto correct
@@ -27,8 +28,14 @@ export GOROOT=/usr/local/opt/go/libexec
 export GOCODE=$GOPATH/src/github.com/ghigt
 export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
 
-export EDITOR='vim'
+export EDITOR='nvim'
 export DISABLE_AUTO_TITLE=true
 
 ## z configuration
 . `brew --prefix`/etc/profile.d/z.sh
+
+# The next line updates PATH for the Google Cloud SDK.
+if [ -f '/Users/ghigt/Downloads/google-cloud-sdk/path.zsh.inc' ]; then source '/Users/ghigt/Downloads/google-cloud-sdk/path.zsh.inc'; fi
+
+# The next line enables shell command completion for gcloud.
+if [ -f '/Users/ghigt/Downloads/google-cloud-sdk/completion.zsh.inc' ]; then source '/Users/ghigt/Downloads/google-cloud-sdk/completion.zsh.inc'; fi
